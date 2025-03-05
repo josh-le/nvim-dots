@@ -11,3 +11,5 @@ vim.keymap.set("v", "<space>x", ":lua<CR>")
 -- set options
 vim.opt.shiftwidth = 4
 vim.opt.number = true
+-- conceal level for obsidian.nvim
+vim.opt.conceallevel = 2
