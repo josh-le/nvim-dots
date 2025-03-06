@@ -12,6 +12,9 @@ vim.keymap.set("n", "<leader>tt", "<cmd>term<CR>")
 vim.keymap.set("t", "qw", "<C-\\><C-n>")
 vim.keymap.set("t", "qq", "<C-\\><C-n>:bd!<CR>")
 
+-- floating terminal in ~/.config/nvim/plugin/floaterminal.lua
+vim.keymap.set({"n", "t"}, "<space>tf", "<cmd>Floaterminal<CR>")
+
 -- small terminal
 vim.keymap.set("n", "<leader>ts", function()
     local handle = vim.api.nvim_get_current_win()

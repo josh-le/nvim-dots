@@ -12,7 +12,6 @@ return {
     },
 
 
-
 	--    -- blink for completion
 	--    {
 	-- 'saghen/blink.cmp',
@@ -87,10 +86,23 @@ return {
     {
 	'hrsh7th/nvim-cmp',
 	config = function()
-	    require('cmp').setup({
-		sources = require('cmp').config.sources({
+	    vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Already common for nvim-cmp
+	    vim.api.nvim_set_keymap('i', '<C-n>', '<NOP>', { noremap = true, silent = true })
+	    vim.api.nvim_set_keymap('i', '<C-p>', '<NOP>', { noremap = true, silent = true })
+	    local cmp = require'cmp'
+	    cmp.setup({
+		sources = cmp.config.sources({
 		    { name = 'nvim_lsp' },
 		    { name = 'buffer' }
+		}),
+		mapping = cmp.mapping.preset.insert({
+		    ['<C-n>'] = cmp.mapping.select_next_item(),
+		    ['<C-p>'] = cmp.mapping.select_prev_item(),
+		    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+		    ['<C-Space>'] = cmp.mapping.open_docs(),
+		    ['<C-y>'] = cmp.mapping.complete(),
+		    ['<C-e>'] = cmp.mapping.abort(),
 		})
 	    })
 	end
