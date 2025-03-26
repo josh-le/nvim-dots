@@ -9,6 +9,9 @@ return {
     -- lspconfig for configuring them
     {
 	"neovim/nvim-lspconfig",
+	config = function()
+	    vim.keymap.set("n", "grn", vim.lsp.buf.rename)
+	end
     },
 
 
@@ -89,6 +92,9 @@ return {
 	    vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Already common for nvim-cmp
 	    vim.api.nvim_set_keymap('i', '<C-n>', '<NOP>', { noremap = true, silent = true })
 	    vim.api.nvim_set_keymap('i', '<C-p>', '<NOP>', { noremap = true, silent = true })
+	    vim.api.nvim_set_keymap('i', '<C-Space>', '<NOP>', { noremap = true, silent = true })
+	    vim.api.nvim_set_keymap('i', '<C-f>', '<NOP>', { noremap = true, silent = true })
+	    vim.api.nvim_set_keymap('i', '<C-b>', '<NOP>', { noremap = true, silent = true })
 	    local cmp = require'cmp'
 	    cmp.setup({
 		sources = cmp.config.sources({
@@ -146,6 +152,24 @@ return {
 		capabilities = capabilities
 	    })
 	    require('lspconfig').sqlls.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').dockerls.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').ts_ls.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').jsonls.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').html.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').cucumber_language_server.setup({
+		capabilities = capabilities
+	    })
+	    require('lspconfig').lemminx.setup({
 		capabilities = capabilities
 	    })
 	end
