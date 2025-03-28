@@ -20,5 +20,10 @@ vim.opt.signcolumn = "no"
 -- conceal level for obsidian.nvim
 vim.opt.conceallevel = 2
 
-
-
+-- autocommand because C comments are broken for some reason
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "c",
+    callback = function()
+	vim.bo.commentstring = "// %s"
+    end,
+})

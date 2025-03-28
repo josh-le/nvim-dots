@@ -138,11 +138,11 @@ return {
 		capabilities = capabilities
 	    })
 	    require('lspconfig').clangd.setup({
-		    on_init = function(client)
-			    client.server_capabilities.semanticTokensProvider = nil
-			    client.server_capabilities.documentFormattingProvider = false
-			    client.server_capabilities.documentFormattingRangeProvider = false
-		    end,
+		on_init = function(client)
+		    client.server_capabilities.semanticTokensProvider = nil
+		    client.server_capabilities.documentFormattingProvider = false
+		    client.server_capabilities.documentFormattingRangeProvider = false
+		end,
 		capabilities = capabilities,
 	    })
 	    require('lspconfig').jdtls.setup({
