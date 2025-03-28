@@ -11,6 +11,7 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 	    vim.keymap.set("n", "grn", vim.lsp.buf.rename)
+	    vim.keymap.set("n", "gra", vim.lsp.buf.code_action)
 	end
     },
 
@@ -124,7 +125,6 @@ return {
 
 	    -- -- for blink
 	    -- local capabilities = require("blink.cmp").get_lsp_capabilities()
-
 	    -- for nvim-cmp
 	    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	    -- individual lsp server configuration
