@@ -167,7 +167,7 @@ return {
 		capabilities = capabilities
 	    })
 	    require('lspconfig').cucumber_language_server.setup({
-		capabilities = capabilities
+		capabilities = capabilities,
 	    })
 	    require('lspconfig').lemminx.setup({
 		capabilities = capabilities

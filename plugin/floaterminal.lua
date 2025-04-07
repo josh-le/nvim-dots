@@ -17,7 +17,7 @@ local function open_floating_window(opts)
     local win_height = opts.height or math.floor(height * 0.8)
 
     -- Calculate center position
-    local row = math.floor((height - win_height) / 2)
+    local row = math.floor((height - win_height) / 3)
     local col = math.floor((width - win_width) / 2)
 
     -- Create a new buffer
