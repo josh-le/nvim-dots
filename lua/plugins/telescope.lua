@@ -29,5 +29,15 @@ return {
 		cwd = vim.fn.stdpath("config")
 	    }
 	end)
+	vim.keymap.set('n', '<leader>fzf', function()
+	    require('telescope.builtin').find_files {
+		cwd = "/Users/joshleblanc/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten"
+	    }
+	end)
+	vim.keymap.set('n', '<leader>fzg', function()
+	    require('telescope.builtin').live_grep {
+		cwd = "/Users/joshleblanc/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten"
+	    }
+	end)
     end
 }
