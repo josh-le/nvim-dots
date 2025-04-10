@@ -1,6 +1,6 @@
 return {
     {
-	dir = "~/programming/nvim-plugins/present.nvim",
+	dir = "Josh-LeBlanc/present.nvim",
 	config = function()
 	    require("present").setup({
 		executors = {
