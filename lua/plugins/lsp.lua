@@ -172,6 +172,6 @@ return {
 	--     require('lspconfig').lemminx.setup({
 	-- 	capabilities = capabilities
 	--     })
-	-- end
+	end
     },
 }
