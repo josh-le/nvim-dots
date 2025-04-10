@@ -128,50 +128,50 @@ return {
 	    -- for nvim-cmp
 	    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	    -- individual lsp server configuration
-	    require("lspconfig").lua_ls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').pyright.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').gopls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').clangd.setup({
-		on_init = function(client)
-		    client.server_capabilities.semanticTokensProvider = nil
-		    client.server_capabilities.documentFormattingProvider = false
-		    client.server_capabilities.documentFormattingRangeProvider = false
-		end,
-		capabilities = capabilities,
-	    })
-	    require('lspconfig').jdtls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').zls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').sqlls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').dockerls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').ts_ls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').jsonls.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').html.setup({
-		capabilities = capabilities
-	    })
-	    require('lspconfig').cucumber_language_server.setup({
-		capabilities = capabilities,
-	    })
-	    require('lspconfig').lemminx.setup({
-		capabilities = capabilities
-	    })
-	end
+	--     require("lspconfig").lua_ls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').pyright.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').gopls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').clangd.setup({
+	-- 	on_init = function(client)
+	-- 	    client.server_capabilities.semanticTokensProvider = nil
+	-- 	    client.server_capabilities.documentFormattingProvider = false
+	-- 	    client.server_capabilities.documentFormattingRangeProvider = false
+	-- 	end,
+	-- 	capabilities = capabilities,
+	--     })
+	--     require('lspconfig').jdtls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').zls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').sqlls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').dockerls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').ts_ls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').jsonls.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').html.setup({
+	-- 	capabilities = capabilities
+	--     })
+	--     require('lspconfig').cucumber_language_server.setup({
+	-- 	capabilities = capabilities,
+	--     })
+	--     require('lspconfig').lemminx.setup({
+	-- 	capabilities = capabilities
+	--     })
+	-- end
     },
 }
