@@ -172,6 +172,9 @@ return {
 	    require('lspconfig').lemminx.setup({
 		capabilities = capabilities
 	    })
+	    require('lspconfig').bashls.setup({
+		capabilities = capabilities
+	    })
 	end
     },
 }
