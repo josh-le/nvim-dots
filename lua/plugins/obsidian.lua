@@ -109,6 +109,10 @@ return {
 		end
 	    end, {})
 	    vim.keymap.set("n", "<leader>zz", "vi[<cmd>NZK<CR>")
+	    vim.keymap.set("n", "<leader>zk", function()
+		local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
+		vim.cmd("e " .. path .. os.date("%Y-%m-%d", os.time()) .. ".md")
+	    end)
 	end
     }
 }
