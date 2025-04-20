@@ -16,6 +16,11 @@ local function select_colorscheme()
     -- vim.cmd("colorscheme kanagawa")
     -- vim.cmd("colorscheme catppuccin")
     random()
+
+    -- transparent background
+    vim.cmd
+    [[ highlight Normal guibg=none ctermbg=none
+    highlight NonText guibg=none ctermbg=none ]]
 end
 
 return {
