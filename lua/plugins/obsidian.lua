@@ -62,7 +62,7 @@ return {
 		    -- get full note title
 		    local title = selected_text:sub(3, -4) .. ".md"
 
-		    local path = "school/spring2025/" .. class .. "/" .. title
+		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/school/spring2025/" .. class .. "/" .. title
 
 		    -- open file and write it
 		    vim.cmd('e ' .. path)
@@ -74,7 +74,6 @@ return {
 		    print("Not in visual mode")
 		end
 	    end, {})
-	    vim.keymap.set("n", "<leader>zs", "vi[<cmd>NSN<CR>")
 
 	    -- regular note
 	    vim.api.nvim_create_user_command("NZK", function()
@@ -96,7 +95,7 @@ return {
 		    -- get full note title
 		    local title = selected_text:sub(3, -4) .. ".md"
 
-		    local path = "zettelkasten/" .. title
+		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/zettelkasten/" .. title
 
 		    -- open file and write it
 		    vim.cmd('e ' .. path)
@@ -108,6 +107,7 @@ return {
 		    print("Not in visual mode")
 		end
 	    end, {})
+	    vim.keymap.set("n", "<leader>zs", "vi[<cmd>NSN<CR>")
 	    vim.keymap.set("n", "<leader>zz", "vi[<cmd>NZK<CR>")
 	    vim.keymap.set("n", "<leader>zk", function()
 		local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
