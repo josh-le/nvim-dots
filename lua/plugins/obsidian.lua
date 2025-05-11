@@ -113,6 +113,10 @@ return {
 		local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
 		vim.cmd("e " .. path .. os.date("%Y-%m-%d", os.time()) .. ".md")
 	    end)
+	    vim.keymap.set("n", "<leader>za", function()
+		local path = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zettelkasten/"
+		vim.cmd("Oil " .. path)
+	    end)
 	end
     }
 }
