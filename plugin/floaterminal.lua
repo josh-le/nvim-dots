@@ -2,7 +2,8 @@ local state = {
     floating = {
 	buf = -1,
 	win = -1
-    }
+    },
+    run_command = ""
 }
 
 local function open_floating_window(opts)
@@ -57,4 +58,14 @@ local toggle_terminal = function()
 end
 
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-
+vim.keymap.set({"n", "t"}, "Tf", "<cmd>Floaterminal<CR>")
+vim.keymap.set({"n", "t"}, "TR", function()
+    state.run_command = vim.fn.input("Enter run command: ")
+end)
+vim.keymap.set("n", "Tr", function()
+    if state.run_command == "" then
+	state.run_command = vim.fn.input("Enter run command: ")
+    end
+    toggle_terminal()
+    vim.api.nvim_input("i" .. state.run_command .. "<CR>")
+end)
