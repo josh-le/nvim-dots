@@ -175,6 +175,9 @@ return {
 	    require('lspconfig').bashls.setup({
 		capabilities = capabilities
 	    })
+	    require('lspconfig').hls.setup({
+		capabilities = capabilities
+	    })
 	end
     },
 }

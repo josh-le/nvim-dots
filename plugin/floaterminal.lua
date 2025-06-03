@@ -59,6 +59,7 @@ end
 
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
 vim.keymap.set({"n", "t"}, "Tf", "<cmd>Floaterminal<CR>")
+-- vim.keymap.set("t", "", "<cmd>Floaterminal<CR>")
 vim.keymap.set({"n", "t"}, "TR", function()
     state.run_command = vim.fn.input("Enter run command: ")
 end)
