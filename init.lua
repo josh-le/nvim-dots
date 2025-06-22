@@ -26,4 +26,11 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
 	vim.bo.commentstring = "// %s"
     end,
-})
+}
+
+vim.api.nvim_create_user_command("Transparent", function()
+    vim.cmd[[
+    highlight Normal guibg=none ctermbg=none
+    highlight NonText guibg=none ctermbg=none
+    ]]
+end, { desc = "make background transparent" })
