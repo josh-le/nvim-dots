@@ -3,7 +3,7 @@ return {
     config = function()
 	require('duckytype').setup{
 	    -- expected = "python_keywords",
-	    number_of_words = 100,
+	    number_of_words = 50,
 	    -- average_word_length = 5.69,
 
 	    -- local borders = { "none", "single", "double", "rounded", "solid", "shadow" }
