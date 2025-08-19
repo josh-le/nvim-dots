@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -19,5 +21,9 @@ return {
 	"stevearc/dressing.nvim",
 	"nvim-lua/plenary.nvim",
 	"MunifTanjim/nui.nvim",
-    }
+    },
+    opts = {
+
+    },
 }
+--]]

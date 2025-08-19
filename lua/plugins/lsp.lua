@@ -178,6 +178,9 @@ return {
 	    require('lspconfig').hls.setup({
 		capabilities = capabilities
 	    })
+	    require('lspconfig').rust_analyzer.setup({
+		capabilities = capabilities
+	    })
 	end
     },
 }
