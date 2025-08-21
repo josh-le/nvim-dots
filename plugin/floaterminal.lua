@@ -4,7 +4,12 @@ local state = {
 	win = -1
     },
     run_command = "",
-    bottom = false,
+    p = 1,
+    placement = {
+	"floating",
+	"bottom",
+	"right",
+    }
 }
 
 local function open_floating_window(opts)
@@ -25,7 +30,7 @@ local function open_floating_window(opts)
     else
 	buf = vim.api.nvim_create_buf(false, true)
 	vim.keymap.set("n", "S", function()
-	    state.bottom = not state.bottom
+	    state.p = math.max(1, (state.p + 1) % (#state.placement + 1))
 	    vim.api.nvim_win_hide(state.floating.win)
 	    state.floating = open_floating_window { buf = state.floating.buf }
 	end)
@@ -41,10 +46,14 @@ local function open_floating_window(opts)
 	border = "rounded", -- Change to "single" or "double" if preferred
     }
     local win = vim.api.nvim_open_win(buf, true, win_opts)
-    if state.bottom then
+    if state.placement[state.p] == "bottom" then
 	local term_height = math.floor(math.max(5, height / 3))
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, term_height)
+    elseif state.placement[state.p] == "right" then
+	local term_width = math.floor(math.max(12, width * .4))
+	vim.cmd.wincmd("L")
+	vim.api.nvim_win_set_width(0, term_width)
     end
 
 
