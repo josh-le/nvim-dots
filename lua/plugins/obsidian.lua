@@ -3,6 +3,7 @@ return {
 	"epwalsh/obsidian.nvim",
 	config = function()
 	    -- setup
+	    vim.opt.conceallevel = 2
 	    require("obsidian").setup {
 		    workspaces = {
 		    {
@@ -16,10 +17,6 @@ return {
 		},
 		notes_subdir = "inbox",
 		new_notes_location = "notes_subdir",
-		daily_notes = {
-		    folder = "journal",
-		    date_format = "%Y-%m-%d",
-		},
 		mappings = {
 		    ["gf"] = {
 			action = function()
@@ -30,6 +27,17 @@ return {
 		},
 		attachments = {
 		    img_folder = "attachments"
+		},
+		daily_notes = {
+		    -- Optional, if you keep daily notes in a separate directory.
+		    folder = "journal/",
+		    -- Optional, default tags to add to each new daily note created.
+		    default_tags = { "daily" },
+		    -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+		    template = "daily.md"
+		},
+		templates = {
+		    folder = "templates/"
 		},
 	    }
 
@@ -62,7 +70,7 @@ return {
 		    -- get full note title
 		    local title = selected_text:sub(3, -4) .. ".md"
 
-		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/school/spring2025/" .. class .. "/" .. title
+		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/school/fall2025/" .. class .. "/" .. title
 
 		    -- open file and write it
 		    vim.cmd('e ' .. path)
@@ -110,8 +118,9 @@ return {
 	    vim.keymap.set("n", "<leader>zs", "vi[<cmd>NSN<CR>")
 	    vim.keymap.set("n", "<leader>zz", "vi[<cmd>NZK<CR>")
 	    vim.keymap.set("n", "<leader>zk", function()
-		local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
-		vim.cmd("e " .. path .. os.date("%Y-%m-%d", os.time()) .. ".md")
+		-- local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
+		-- vim.cmd("e " .. path .. os.date("%Y-%m-%d", os.time()) .. ".md")
+		vim.cmd("ObsidianToday")
 	    end)
 	    vim.keymap.set("n", "<leader>za", function()
 		local path = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zettelkasten/"

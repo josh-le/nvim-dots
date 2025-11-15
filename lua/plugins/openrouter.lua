@@ -3,5 +3,6 @@ return {
     dir = "~/programming/nvim-plugins/openrouter.nvim",
     config = function()
 	require('openrouter').setup({})
-    end
+    end,
+    enabled = false
 }

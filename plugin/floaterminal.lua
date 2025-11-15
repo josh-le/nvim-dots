@@ -33,7 +33,9 @@ local function open_floating_window(opts)
 	    state.p = math.max(1, (state.p + 1) % (#state.placement + 1))
 	    vim.api.nvim_win_hide(state.floating.win)
 	    state.floating = open_floating_window { buf = state.floating.buf }
-	end)
+	end, {
+	    buffer = state.floating.buf
+	})
     end
 
     local win_opts = {
