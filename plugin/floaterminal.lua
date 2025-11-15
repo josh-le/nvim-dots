@@ -29,13 +29,6 @@ local function open_floating_window(opts)
 	buf = opts.buf
     else
 	buf = vim.api.nvim_create_buf(false, true)
-	vim.keymap.set("n", "S", function()
-	    state.p = math.max(1, (state.p + 1) % (#state.placement + 1))
-	    vim.api.nvim_win_hide(state.floating.win)
-	    state.floating = open_floating_window { buf = state.floating.buf }
-	end, {
-	    buffer = state.floating.buf
-	})
     end
 
     local win_opts = {
@@ -77,6 +70,15 @@ local toggle_terminal = function()
 	state.floating = open_floating_window { buf = state.floating.buf }
 	if vim.bo[state.floating.buf].buftype ~= "terminal" then
 	    vim.cmd.term()
+	    local term_buf = vim.api.nvim_win_get_buf(state.floating.win)
+	    state.floating.buf = term_buf
+	    vim.keymap.set("n", "S", function()
+		state.p = math.max(1, (state.p + 1) % (#state.placement + 1))
+		vim.api.nvim_win_hide(state.floating.win)
+		state.floating = open_floating_window { buf = state.floating.buf }
+	    end, {
+		buffer = term_buf
+	    })
 	end
     else
 	vim.api.nvim_win_hide(state.floating.win)
