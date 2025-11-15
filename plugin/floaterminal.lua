@@ -98,3 +98,14 @@ vim.keymap.set("n", "Tr", function()
     toggle_terminal()
     vim.api.nvim_input("i" .. state.run_command .. "<CR>")
 end)
+
+local augroup = vim.api.nvim_create_augroup("Floaterminal", { clear = true })
+vim.api.nvim_create_autocmd("VimLeave", {
+    group = augroup,
+    desc = "Kill floaterminal when quitting Neovim",
+    callback = function()
+        if vim.api.nvim_buf_is_valid(state.floating.buf) then
+            vim.api.nvim_buf_delete(state.floating.buf, { force = true })
+        end
+    end,
+})
