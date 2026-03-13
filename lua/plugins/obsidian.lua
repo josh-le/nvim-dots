@@ -70,7 +70,7 @@ return {
 		    -- get full note title
 		    local title = selected_text:sub(3, -4) .. ".md"
 
-		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/school/fall2025/" .. class .. "/" .. title
+		    local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/school/spring2026/" .. class .. "/" .. title
 
 		    -- open file and write it
 		    vim.cmd('e ' .. path)
@@ -117,15 +117,12 @@ return {
 	    end, {})
 	    vim.keymap.set("n", "<leader>zs", "vi[<cmd>NSN<CR>")
 	    vim.keymap.set("n", "<leader>zz", "vi[<cmd>NZK<CR>")
-	    vim.keymap.set("n", "<leader>zk", function()
-		-- local path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/journal/"
-		-- vim.cmd("e " .. path .. os.date("%Y-%m-%d", os.time()) .. ".md")
-		vim.cmd("ObsidianToday")
-	    end)
 	    vim.keymap.set("n", "<leader>za", function()
 		local path = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zettelkasten/"
 		vim.cmd("Oil " .. path)
 	    end)
+	    vim.keymap.set("n", "<leader>zt", "<cmd>e $ZK/todo.md<CR>")
+	    vim.keymap.set("n", "<leader>zk", "<cmd>ObsidianToday<CR>")
 	end
     }
 }
